@@ -1,3 +1,4 @@
+"""This module contains scraper app url definitions."""
 from django.urls import path, include
 from rest_framework import routers
 
