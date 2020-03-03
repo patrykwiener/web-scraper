@@ -5,6 +5,7 @@ scraping functionality.
 import datetime
 from abc import ABC, abstractmethod
 
+from django.utils import timezone
 from django.utils.timezone import make_aware
 
 from apps.scraper.logic.scraper import Scraper
@@ -35,7 +36,7 @@ class ScraperServiceBase(ABC):
 
     def _set_request_done_timestamp(self) -> None:
         """Sets request completion datetime with the current datetime."""
-        self._url_model.request_done_datetime = make_aware(datetime.datetime.now())
+        self._url_model.request_done_datetime = timezone.now()
 
     @abstractmethod
     def _unpack_scraped_data(self, scraped_data: ScrapedData):
