@@ -24,7 +24,7 @@ class URLModel(models.Model):
 
     website_url = models.URLField()
     status = models.CharField(
-        max_length=10,
+        max_length=256,
         choices=STATUS_CHOICES,
         default=PROCESSING
     )

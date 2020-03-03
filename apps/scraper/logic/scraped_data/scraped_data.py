@@ -1,22 +1,19 @@
-"""This module contains ScraperBase class responsible for core scraping actions."""
-import requests
+"""This module contains ScrapedData class representing scraped data from the given website."""
 from bs4 import BeautifulSoup
 
 
-class ScraperBase:
+class ScrapedData:
     """Represents scraper base class."""
 
     EXCLUDE_TAGS_LIST = ['script', 'style']
 
-    def __init__(self, website_url):
+    def __init__(self, soup: BeautifulSoup):
         """
-        Sends request to the given website. Initializes BeautifulSoup object responsible for most of scraping
-        operations.
+        Initializes properties.
 
-        :param website_url: website url to be scraped
+        :param soup: BeautifulSoup object containing website content
         """
-        page = requests.get(website_url).content
-        self._soup_page = BeautifulSoup(page, features='html.parser')
+        self._soup_page = soup
 
     def exclude_tags(self, exclude_tags_list=None):
         """
@@ -26,6 +23,5 @@ class ScraperBase:
         """
         if exclude_tags_list is None:
             exclude_tags_list = self.EXCLUDE_TAGS_LIST
-        self._soup_page = self._soup_page.body
         for script in self._soup_page(exclude_tags_list):
             script.decompose()

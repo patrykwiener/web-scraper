@@ -1,14 +1,14 @@
-"""This module contains TextScraper class responsible for fetching text from the given website."""
-from apps.scraper.logic.scraper_base import ScraperBase
+"""This module contains TextScrapedData class representing scraped text from the given website."""
+from apps.scraper.logic.scraped_data.scraped_data import ScrapedData
 
 
-class TextScraper(ScraperBase):
-    """Represents website text scraper."""
+class TextScrapedData(ScrapedData):
+    """Represents website scraped text."""
 
     @property
     def text(self, separator='\n', strip=True):
         """
-        Converts website html to text.
+        Converts website content to text.
 
         :param separator: strings are concatenated using this separator
         :param strip: if True, strings are stripped before concatenation

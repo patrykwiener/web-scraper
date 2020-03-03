@@ -1,22 +1,22 @@
-"""This module contains ImageScraper class responsible for pulling images from the given website."""
+"""This module contains ImageScrapedData class representing scraped images from the given website."""
 import requests
 
-from apps.scraper.logic.image_scraper.image import Image
-from apps.scraper.logic.image_scraper.image_url import ImageURL
-from apps.scraper.logic.scraper_base import ScraperBase
+from apps.scraper.logic.scraped_data.image_scraped_data.image import Image
+from apps.scraper.logic.scraped_data.image_scraped_data.image_url import ImageURL
+from apps.scraper.logic.scraped_data.scraped_data import ScrapedData
 
 
-class ImageScraper(ScraperBase):
-    """Represents website image scraper."""
+class ImageScrapedData(ScrapedData):
+    """Represents website scraped images."""
 
-    def __init__(self, website_url, extension_white_list=None):
+    def __init__(self, soup, extension_white_list=None):
         """
-        Invokes parent class constructor sending request to the given website. Defines image extensions white list.
+        Initializes object properties.
 
-        :param website_url: website url to be scraped
+        :param soup: scraped website content
         :param extension_white_list: list of extensions allowed for images
         """
-        super().__init__(website_url)
+        super().__init__(soup)
         self._extension_white_list = extension_white_list
 
     def _get_image_url(self, image_tag):

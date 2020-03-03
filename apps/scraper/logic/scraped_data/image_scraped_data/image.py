@@ -1,5 +1,5 @@
 """This module contains Image class representing pulled image from a website."""
-from apps.scraper.logic.image_scraper.image_url import ImageURL
+from apps.scraper.logic.scraped_data.image_scraped_data.image_url import ImageURL
 
 
 class Image:
