@@ -119,3 +119,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
+
+TESTDATA_DIR = os.path.join(BASE_DIR, 'testdata')
+TEST_IMAGES_DIR = os.path.join(TESTDATA_DIR, 'images')
