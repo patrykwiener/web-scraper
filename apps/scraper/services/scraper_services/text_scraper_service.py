@@ -5,7 +5,7 @@ scraping functionality.
 from apps.scraper.logic.scraped_data.text_scraped_data import TextScrapedData
 from apps.scraper.logic.scraper import TextScraper
 from apps.scraper.models import TextScraperModel, URLModel
-from apps.scraper.services.scraper_service_base import ScraperServiceBase
+from apps.scraper.services.scraper_services.scraper_service_base import ScraperServiceBase
 
 
 class TextScraperService(ScraperServiceBase):
