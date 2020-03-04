@@ -8,7 +8,7 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
-    container_name: movie-database
+    container_name: web-scraper
     volumes:
       - .:/code
     ports:
